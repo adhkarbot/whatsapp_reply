@@ -9,6 +9,7 @@ Folder()
 const options = {
     multiDevice: true,
     authTimeout: 0,
+    useChrome: true,
     blockCrashLogs: true,
     autoRefresh: true,
     cacheEnabled: true,
@@ -19,7 +20,8 @@ const options = {
     bypassCSP: true,
     headless: true,
     logConsole: false,
-    executablePath: process.platform === "win32" ? "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" : "/usr/bin/google-chrome-stable",
+    restartOnCrash: reply_bot,
+    //executablePath: process.platform === "win32" ? "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" : "/usr/bin/google-chrome-stable",
     qrTimeout: 0,
     sessionId: 'reply_session'
 };
