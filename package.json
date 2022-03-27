@@ -12,7 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@open-wa/wa-automate": "^4.32.17",
-    "fs-extra": "^10.0.1",
-    "os": "^0.1.2"
+    "fs-extra": "^10.0.1"
   }
 }
