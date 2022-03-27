@@ -1,10 +1,32 @@
 const wa = require('@open-wa/wa-automate');
 const getMenu = require('./lib/getMenu.js');
-const { Folder } = require('./lib/Folder.js');
 const { menu } = require('./lib/menu.js');
+const fs = require('fs-extra');
 
-Folder()
+if (fs.existsSync('./db') === false) {
 
+    fs.mkdirSync('./db');
+
+}
+
+
+if (fs.existsSync('./db/Menu.json') === false) {
+
+    fs.writeJsonSync('./db/Menu.json', {});
+
+}
+
+if (fs.existsSync('./db/reply.json') === false) {
+
+    fs.writeJsonSync('./db/reply.json', []);
+
+}
+
+if (fs.existsSync('./db/word.json') === false) {
+
+    fs.writeJsonSync('./db/word.json', []);
+
+}
 
 const options = {
     multiDevice: true,
