@@ -9,12 +9,18 @@ if (fs.existsSync('./db') === false) {
 
 }
 
+if (fs.existsSync('./db/Menu.json') === false) {
+
+    fs.writeJsonSync('./db/Menu.json', []);
+
+}
 
 if (fs.existsSync('./db/reply.json') === false) {
 
     fs.writeJsonSync('./db/reply.json', []);
 
 }
+
 
 if (fs.existsSync('./db/word.json') === false) {
 
@@ -72,7 +78,7 @@ async function reply_bot(client) {
                     isGroup: isGroupMsg,
                     client: client,
     
-                });
+                }).catch(e => console.log(e))
                 
             }
             
