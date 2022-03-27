@@ -1,6 +1,6 @@
 const wa = require('@open-wa/wa-automate');
 const getMenu = require('./lib/getMenu.js');
-const { menu } = require('./lib/menu.js');
+const menu = require('./lib/menu.js');
 const fs = require('fs-extra');
 
 if (fs.existsSync('./db') === false) {
@@ -50,6 +50,7 @@ wa.create(options)
 async function reply_bot(client) {
 
     try {
+
         await client.onAnyMessage(async (msg) => {
 
             let from = msg.from;
@@ -58,17 +59,23 @@ async function reply_bot(client) {
             let messages = msg;
             let Menufrom = await getMenu(from);
             let isGroupMsg = msg.isGroupMsg;
+            let Getme = await client.getMe()
 
-            await menu[Menufrom !== undefined ? Menufrom : 0].menu_name.exec({
+            if (Getme.status !== from) {
 
-                body: body,
-                messages: messages,
-                id: id,
-                from: from,
-                isGroup: isGroupMsg,
-                client: client,
+                await menu[Menufrom].menu_name.exec({
 
-            });
+                    body: body,
+                    messages: messages,
+                    id: id,
+                    from: from,
+                    isGroup: isGroupMsg,
+                    client: client,
+    
+                });
+                
+            }
+            
 
         });
 
