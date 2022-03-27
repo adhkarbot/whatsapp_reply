@@ -1,7 +1,7 @@
-import wa from '@open-wa/wa-automate';
-import getMenu from './lib/getMenu.js';
-import Folder from './lib/Folder.js';
-import { menu } from './lib/menu.js';
+const wa = require('@open-wa/wa-automate');
+const getMenu = require('./lib/getMenu.js');
+const Folder = require('./lib/Folder.js');
+const { menu } = require('./lib/menu.js');
 
 Folder()
 
